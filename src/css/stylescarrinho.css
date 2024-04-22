@@ -1,0 +1,98 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: calc(25.33% - 20px);
+    margin: 3px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: linear-gradient(to left, #e6f0e6, #f4f4e7);
+    animation: Gradient 15s ease infinite;
+    background-size: 700% 700%;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+    font-size: 0.8rem;
+
+}
+
+
+
+.card img {
+    max-width: 100%;
+}
+
+footer {
+    background-color: #5ac237;
+    padding: 20px;
+    text-align: right;
+    font-size: 22px;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.cart-sidebar {
+  position: fixed;
+  top: 0;
+  right: -300px; /* Esconder inicialmente */
+  width: 300px;
+  height: 100%;
+  background-color: #ffffff;
+  box-shadow: -1px 0 5px rgba(0, 0, 0, 0.1);
+  transition: right 0.3s ease;
+}
+
+.cart-header {
+  background-color: #333;
+  color: #ffffff;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-content {
+  padding: 20px;
+}
+
+.cart-total {
+  margin-top: 20px;
+  text-align: right;
+}
+
+.cart-total .total-value {
+  font-weight: bold;
+}
+
+.open-cart-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  background-color: #333;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  z-index: 999;
+}
+
+.close-cart-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}

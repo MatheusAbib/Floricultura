@@ -1,0 +1,107 @@
+
+html{
+align-items: center;
+
+}
+body {
+    margin: 0; /* Remove as margens padrão do corpo */
+    padding: 0; /* Remove os preenchimentos padrão do corpo */
+    width: 100%; /* Define a largura do corpo como 100% */
+    overflow-x: hidden; /* Impede a rolagem horizontal */
+    font-family: Arial, sans-serif;
+
+}
+
+.col .card{
+    background: linear-gradient(to left, #e4f0e4, #e1e1cd	);
+    animation: Gradient 15s ease infinite;
+    background-size: 700% 700%;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+    font-size: 13px;
+
+}
+
+.col .card:hover{
+    opacity: 0.9;
+}
+@keyframes Gradient {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+  }
+  
+
+.btn.btn-success {
+    font-size: 15px; /* Defina o tamanho da fonte */
+    padding: 10px 5px; /* Ajuste o preenchimento para alterar o tamanho do botão */
+    /* Outros estilos conforme necessário */
+}
+.btn.btn-light.disabled {
+    font-size: 15px; /* Defina o tamanho da fonte */
+    padding: -10px 150px;
+}
+
+.text-center{
+    font-size: 12px;
+}
+
+.card-title{
+    font-size: 17px;
+}
+
+.promo{
+    font-size: 3px;
+    width: 47rem;
+}
+
+.plant-table {
+    position: absolute;
+    background-color: rgb(235, 239, 211);
+    border: 1px solid #b0b0b0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 5px;
+    z-index: 1000;
+}
+
+.plant-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.plant-table th,
+.plant-table td {
+    padding: 8px 12px;
+}
+
+.plant-table th {
+    background-color: #f2f2f2;
+    border-bottom: 2px solid #ddd;
+}
+
+.plant-table tbody tr:hover {
+    background-color: #f5f5f5;
+    cursor: pointer;
+}
+.horizontal-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.horizontal-list li {
+    padding: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #ffffff;
+}
+
+.horizontal-list li:hover {
+    background-color: #e0e0e0;
+}
+
+

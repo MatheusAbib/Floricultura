@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="icon" type="image" sizes="16x16" href="src/image/flowerpot.png">
+    <title>Carrinho de Compras</title>
+    <link rel="stylesheet" href="src/css/stylescarrinho.css">
+    <link rel="stylesheet" href="src/css/recursivocarrinho.css">
+
+    <style>
+        /* Estilos adicionais */
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .navbar {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+            margin-bottom: 15px;
+            box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+        }
+
+        .shade-sm {
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        }
+
+        .border-bottom {
+            border-bottom: 1px solid #dee2e6 !important;
+        }
+
+        .mb-3 {
+            margin-bottom: 1rem !important;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+        }
+
+        .navbar-dark .navbar-brand {
+            color: #fff;
+        }
+
+        .bg-success {
+            background-color: #1f7733 !important;
+        }
+
+        .navbar-dark .navbar-nav .nav-link {
+            color: rgba(255, 255, 255, 0.75);
+        }
+
+        .navbar-dark .navbar-nav .nav-link.active {
+            color: #fff;
+        }
+
+        .page-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .content {
+            display: flex;
+        }
+
+        section {
+            flex: 3;
+            margin-right: 20px;
+        }
+
+        aside {
+            flex: 1;
+        }
+
+        /* Estilo para os cards */
+        .card {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        .card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+
+        }
+      
+         
+        
+    </style>
+</head>
+<body>
+<div class="d-flex flex-column wrapper">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success border-bottom shade-sm mb-3">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><b>Floricultura Abib</b></a>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="index.html">Principal</a>
+                </li>
+                
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="row" id="product-row">
+        </div>
+    </div>
+    <footer>
+        <div id="total">Total: R$0.00</div>
+    </footer>
+    <button class="open-cart-btn">Abrir Carrinho</button>
+    <div class="cart-sidebar">
+        <div class="cart-header">
+            <h2>Carrinho de Compras</h2>
+            <button class="close-cart-btn">Fechar</button>
+        </div>
+        <div class="cart-content" id="cart-content">
+            <!-- Os itens do carrinho serão adicionados dinamicamente aqui -->
+        </div>
+        <div class="cart-total">
+            <p>Total: <span id="cart-total">R$0.00</span></p>
+        </div>
+        <button class="checkout-btn">Finalizar Pagamento</button>
+    </div>
+</div>
+<script>
+    let products = [
+    {
+        id: 1,
+        name:'Brownies',
+        image:'src/image/flores.webp',
+        price: 99.99
+    },
+    {
+        id: 2,
+        name:'Chocolates',
+        image:'src/image/nutella.webp',
+        price: 140.00
+    },
+    {
+        id: 3,
+        name:'Aperitivos',
+        image:'src/image/breja.webp',
+        price: 50.00
+    },
+    {
+        id: 4,
+        name:'Combo',
+        image:'src/image/ursinho.webp',
+        price: 189.90
+    },
+    {
+        id: 5,
+        name:'Kit de sabores',
+        image:'src/image/chocolate.webp',
+        price: 89.90
+    },
+    {
+        id: 6,
+        name:'Ferrero Rocher',
+        image:'src/image/ferreiro.webp',
+        price: 32.60
+    },
+    {
+        id: 7,
+        name:'Café da manhã',
+        image:'src/image/caixa.webp',
+        price: 235.00
+    },
+    {
+        id: 8,
+        name:'Kit placas decorativas',
+        image:'src/image/beer.webp',
+        price: 79.00
+    },
+    {
+        id: 9,
+        name:'Vinho tinto',
+        image:'src/image/vinho.webp',
+        price: 105.60
+    },
+    {
+        id: 10,
+        name:'Passione',
+        image:'src/image/rosascaixa.webp',
+        price: 170.50
+    },
+    {
+        id: 11,
+        name:'Ursinho',
+        image:'src/image/urso.webp',
+        price: 74.50
+    },
+    {
+        id: 12,
+        name:'Chandon',
+        image:'src/image/chandon.webp',
+        price: 59.90
+    },
+];
+
+    const productRow = document.getElementById('product-row');
+    const totalDiv = document.getElementById('total');
+    const cartContent = document.getElementById('cart-content');
+    const cartTotalSpan = document.getElementById('cart-total');
+    const cartSidebar = document.querySelector('.cart-sidebar');
+    const openCartBtn = document.querySelector('.open-cart-btn');
+    const closeCartBtns = document.querySelectorAll('.close-cart-btn');
+    const checkoutBtn = document.querySelector('.checkout-btn');
+
+    products.forEach(product => {
+        const card = document.createElement('div');
+        card.classList.add('card');
+
+        const img = document.createElement('img');
+        img.src = product.image;
+        img.alt = product.name;
+
+        const productName = document.createElement('h3');
+        productName.textContent = product.name;
+
+        const productPrice = document.createElement('p');
+        productPrice.textContent = `Price: R$${product.price.toFixed(2)}`;
+
+        const addButton = document.createElement('button');
+        addButton.textContent = 'Adicionar ao Carrinho';
+        addButton.addEventListener('click', () => addToCart(product));
+
+        card.appendChild(img);
+        card.appendChild(productName);
+        card.appendChild(productPrice);
+        card.appendChild(addButton);
+
+        productRow.appendChild(card);
+    });
+
+    let cartTotal = 0;
+    const cartItems = [];
+
+    openCartBtn.addEventListener('click', () => {
+        cartSidebar.style.right = '0';
+        openCartBtn.style.display = 'none';
+    });
+
+    closeCartBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            cartSidebar.style.right = '-300px';
+            openCartBtn.style.display = 'block';
+        });
+    });
+
+    checkoutBtn.addEventListener('click', () => {
+        window.open('pagina_de_pagamento.html', '_blank');
+    });
+
+    function addToCart(product) {
+        cartItems.push(product);
+        cartTotal += product.price;
+        totalDiv.textContent = `Total: R$${cartTotal.toFixed(2)}`;
+
+        cartContent.innerHTML = '';
+        cartItems.forEach(item => {
+            const cartItem = document.createElement('div');
+            cartItem.textContent = `${item.name} - R$${item.price.toFixed(2)}`;
+            cartContent.appendChild(cartItem);
+        });
+
+        cartTotalSpan.textContent = `R$${cartTotal.toFixed(2)}`;
+    }
+</script>
+</body>
+</html>

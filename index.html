@@ -1,0 +1,732 @@
+<!doctype html>
+<html lang="pt">
+  <head>
+   
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+   
+     
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    
+    <link rel="icon" type="image" sizes="16x16" href="src/image/flowerpot.png">
+    <link href="src/css/stilo.css"  rel="stylesheet">
+    <link href="src/css/responsivo.css"  rel="stylesheet">
+
+  <title> Bem Vindo </title>
+  </head>
+        
+        <i class="bi-alarm"></i>
+  <body>
+
+      <div class="d-flex flex-column wrapper">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success border-bottom shade-sm mb-3">
+        <div class="container">
+          <a class="navbar-brand" href="index.html"><b>Floricultura Abib</b></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active text-white" aria-current="page" href="index.html">Principal</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="fale.html">Fale conosco</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link text-white dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Outros
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="presente.html">Presentes</a></li>
+                  <li><a class="dropdown-item" href="quemsomos.html">Quem somos</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" href="" tabindex="-1" aria-disabled="true">volte sempre</a>
+              </li>
+            </ul>
+          <div class="align-self-end">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <span class="badge rounded-pill bg-light text-danger position-absolute ms-4 mt-0" title="6 produto(s) na sacola"><small>6</small></span>
+                <a href ="carrinho.html" class="nav-link text-white">
+                  <i class="bi-cart" style="font-size:24px;line-height:24px;"></i>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-bag-heart-fill" viewBox="0 0 16 16">
+                    <path d="M11.5 4v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5ZM8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1Zm0 6.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132Z"/>
+            
+                  </svg>
+                
+                  
+                </a>
+                </li>
+           
+                </ul>
+              </div>
+          </div>
+        </div>
+      </nav>
+        <div class="container">
+          <div id="carouselMain" class="carousel slide carousel-dark" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselMain" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselMain" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselMain" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active" data-bs-interval="3000">
+                <img src="src/image/irmao.webp" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item" data-bs-interval="3000">
+                <img src="src/image/banner.webp" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item" data-bs-interval="3000">
+                <img src="src/image/astromelia.webp" class="d-block w-100" alt="...">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselMain" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselMain" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Proximo</span>
+            </button>
+          </div>
+          <hr class="mt-3">
+        </div>
+            
+        <main class="flex-fill">
+          <div class="container">
+              <div class="row">
+                <div class="col-12 col-md-5">
+                  <form class="justify-content-center justify-content-md-start mb-3 mb-md-0">
+                    
+                    <div class="input-group input-group-sm">
+                      <input type="text" id="searchInput" class="form-control" placeholder="Digite aqui o que procura" autocomplete="off" >
+                      <button class="btn btn-success" onclick="search()">Buscar</button>
+                    </div>
+                    <div id="plantList" class="plant-list"></div>
+                    <div id="plantTable" class="plant-table"></div>
+
+                  </form>
+                </div>
+                <div class="col-12 col-md-7">
+                  <div class="d-flex flex-row-reverse justify-content-center justify-content-md-start">
+                    <form class="d-inline-block">
+                      <select class="form-select form-select-sm">
+                        <option>Ordenar pelo menor preço</option>
+                        <option>Ordenar pelo maior preço</option>
+                      </select> 
+                    </form>
+                    <nav class="d-inline-block me-3">
+                      <ul class="pagination pagination-sm my-0">
+                       <li class="page-item">
+                        <a class="page-link" href="#">1</a>
+                       </li>
+                       <li class="page-item">
+                        <a class="page-link" href="#">2</a>
+                       </li>
+                       <li class="page-item disabled">
+                        <a class="page-link" href="#">3</a>
+                       </li>
+                       <li class="page-item">
+                        <a class="page-link" href="#">4</a>
+                       </li>
+                       <li class="page-item">
+                        <a class="page-link" href="#">5</a>
+                       </li>
+                       <li class="page-item">
+                        <a class="page-link" href="#">6</a>
+                       </li>
+                
+                      </ul>
+                    </nav>
+                </div>
+              
+               </div>
+               </div>
+               <hr mt-3>
+               <div  class="row row-cols-1 row-cols-md-6 g-4 col-13">
+                <div  class="col">
+                  <div  id="matheus" class="card">
+                    
+                    <img src="src/image/paz.webp" class="card-img-top">
+                    <div class="card-header text-center">
+                      R$25,00
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">Lirio da paz</h5>
+                      <p class="card-text truncar-3l">Uma bela e pequena planta para sua casa, acompanhado de um vaso pequeno decorativo.</p>
+                    </div>
+                    <div id="andressa" class="card-footer">
+                      <a href="carrinho.html"  class="btn btn-success mt-2 d-block">adicionar a sacola</a>
+                      <small class="text-sucess">15 unidades em estoque</small>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="col">
+                  <div id="matheus" class="card">
+                    <img src="src/image/asplenio.webp" class="card-img-top" alt="...">
+                    <div class="card-header text-center">
+                      R$45,00
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">Asplenio</h5>
+                      <p class="card-text truncar-3l">Presenteie a si mesma com essa linda Asplenio para decorar o interior de sua casa, ou o seu jardim.</p>
+                    </div>
+                    <div class="card-footer">
+                      <a href="carrinho.html" class="btn btn-success mt-2 d-block">adicionar a sacola</a>
+                      <small class="text-sucess">22 unidades em estoque</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div id="matheus" class="card">
+                    <img src="src/image/cactos.jpeg" class="card-img-top" alt="...">
+                    <div class="card-header text-center">
+                      R$40,00
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">Cactus</h5>
+                      <p class="card-text truncar-3l">Com pouca rega, os Cactos são otimos indicados para você reforçar a decoração interna de sua casa.</p>
+                    </div>
+                    <div class="card-footer">
+                      <a href="carrinho.html" class="btn btn-success mt-2 d-block">adicionar a sacola</a>
+                      <small class="text-sucess">08 unidades em estoque</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div id="matheus" class="card">
+                    <img src="src/image/bonsai.jpg" class="card-img-top" alt="...">
+                    <div class="card-header text-center">
+                      R$50,00
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">Bonsai</h5>
+                      <p class="card-text truncar-3l">O bonsai é uma arvore oriunda de países asiáticos, simboliza prosperidade e sorte à pessoa homenageada.</p>
+                    </div>
+                    <div class="card-footer">
+                      <a href="carrinho.html" class="btn btn-success mt-2 d-block">adicionar a sacola</a>
+                      <small class="text-sucess">11 unidades em estoque</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card">
+                    <img src="src/image/girassol.webp" class="card-img-top" >
+                    <div class="card-header text-center">
+                      R$74,99
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">Girassol</h5>
+                      <p class="card-text truncar-3l">Buquê composto por girassois em tons vívidos que deixará qualquer pessoa presenteada alegra.
+                      </p>
+                    </div>
+                    <div class="card-footer">
+                      <a href="#" class="btn btn-light disabled mt-2 d-block">
+                      <small>Reabastecendo Estoque</small>
+                      </a>
+                      <small class="text-danger">
+                        <div class="text-center">
+                        <b>Produto Esgotado</b>
+                      </small>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div id="matheus" class="card">
+                    <img src="src/image/OIP.jpeg" class="card-img-top" alt="...">
+                    <div class="card-header text-center">
+                      R$89,50
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">Bromelia</h5>
+                      <p class="card-text truncar-3l">Elas dão cor e beleza a qualquer casa ou escritório, graças às suas suas folhas longas e delgadas.</p>
+                    </div>
+                    <div class="card-footer">
+                      <a href="carrinho.html" class="btn btn-success mt-2 d-block">adicionar a sacola</a>
+                      <small class="text-sucess">20 unidades em estoque</small>
+                    </div>
+                  
+                  </div>
+                </div>
+               </div>
+               <br> <br>
+               <div class="row row-cols-1 row-cols-md-6 g-4 col-13">
+                <div class="col">
+                  <div id="matheus" class="card">
+                    <img src="src/image/pep.jpeg" class="card-img-top">
+                    <div class="card-header text-center">
+                        R$35,99
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">Peperomia</h5>
+                      <p class="card-text truncar-3l">Com rega reculada, e pouca iluminosidade, a peperomia é otima para se desenvolver em prateleiras altas.</p>
+                    </div>
+                    <div class="card-footer">
+                      <a href="carrinho.html" class="btn btn-success mt-2 d-block">adicionar a sacola</a>
+                      <small class="text-sucess">24 unidades em estoque</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div id="matheus" class="card">
+                    <img src="src/image/31809gg1.webp" class="card-img-top" alt="...">
+                    <div class="card-header text-center">
+                      R$105,00
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">Orquidea</h5>
+                      <p class="card-text truncar-3l">Orquídeas são o presente perfeito e sofisticado para uma linda decoração interna de sua casa.</p>
+                    </div>
+                    <div class="card-footer">
+                      <a href="carrinho.html" class="btn btn-success mt-2 d-block">adicionar a sacola</a>
+                      <small class="text-sucess">29 unidades em estoque</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div id="matheus" class="card">
+                    <img src="src/image/OIP (1).jpeg" class="card-img-top" alt="...">
+                    <div class="card-header text-center">
+                      R$25,00
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">Anturio</h5>
+                      <p class="card-text truncar-3l">O Antúrio é uma ótima opção de presente se você quer ajudar alguém a embelezar qualquer ambiente</p>
+                    </div>
+                    <div class="card-footer">
+                      <a href="carrinho.html" class="btn btn-success mt-2 d-block">adicionar a sacola</a>
+                      <small class="text-sucess">10 unidades em estoque</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="promo">
+                <div class="card">
+                  <img src="src/image/bmm79fu5.png" class="card-img-top">
+                <br>
+                
+                <div class="card text-center" >
+                  <div class="card-body" >
+                    <h5 class="card-title">Fique de olho no nosso site!</h5>
+                    <p class="card-text truncar-3l">Toda semana temos descontos e novidades exclusivas, somente aqui em nosso site!</p>
+                    <a href="promocao.html" class="btn btn-success">Promoções disponiveis</a>
+                  </div>
+                  <div class="card-footer text-muted">
+                    2 days ago
+                  </div>
+                </div>
+               </div>
+              </div>
+               </div>
+               <br> <br>
+                <div class="row row-cols-1 row-cols-md-6 g-4 col-13">
+                  <div class="col">
+                    <div id="matheus" class="card">
+                      <img src="src/image/sao.jpg" class="card-img-top">
+                      <div class="card-header text-center">
+                          R$35,99
+                      </div>
+                      <div class="card-body">
+                        <h5 class="card-title">Espada de São Jorge</h5>
+                        <p class="card-text truncar-3l">Plantada no vaso tamanho 11, ideal para presentear pois simboliza prosperidade.</p>
+                      </div>
+                      <div class="card-footer">
+                        <a href="carrinho.html" class="btn btn-success mt-2 d-block">adicionar a sacola</a>
+                        <small class="text-sucess">24 unidades em estoque</small>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div id="matheus" class="card">
+                      <img src="src/image/begonia.webp" class="card-img-top" alt="...">
+                      <div class="card-header text-center">
+                        R$105,00
+                      </div>
+                      <div class="card-body">
+                        <h5 class="card-title">Begônia</h5>
+                        <p class="card-text truncar-3l">Presenteie alguém especial com essa linda Begônia Maculata, ela deixar qualquer ambiente aconchegante</p>
+                      </div>
+                      <div class="card-footer">
+                        <a href="carrinho.html" class="btn btn-success mt-2 d-block">adicionar a sacola</a>
+                        <small class="text-sucess">21 unidades em estoque</small>
+                      </div>
+                    </div>
+                  </div>
+                <div class="col">
+                  <div id="matheus" class="card">
+                    <img src="src/image/ama.png" class="card-img-top" alt="...">
+                    <div class="card-header text-center">
+                      R$25,00
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">Aglaonema</h5>
+                      <p class="card-text truncar-3l"> É uma ótima planta para se ter em casa pois, alem de ser bem decorativa, requer apenas alguns cuidados.</p>
+                    </div>
+                    <div class="card-footer">
+                      <a href="carrinho.html" class="btn btn-success mt-2 d-block">adicionar a sacola</a>
+                      <small class="text-sucess">12 unidades em estoque</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div id="matheus" class="card">
+                    <img src="src/image/OIP (2).jpeg" class="card-img-top" alt="...">
+                    <div class="card-header text-center">
+                      R$17,99
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">Kalanchoe</h5>
+                      <p class="card-text truncar-3l">Excelente para decoração de espaços internos e externos, trazendo um toque especial ao ambiente.</p>
+                    </div>
+                    <div class="card-footer">
+                      <a href="carrinho.html" class="btn btn-success mt-2 d-block">adicionar a sacola</a>
+                      <small class="text-sucess">15 unidades em estoque</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div id="matheus" class="card">
+                    <img src="src/image/bamboo.webp" class="card-img-top" alt="...">
+                    <div class="card-header text-center">
+                      R$25,00
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">Bamboo</h5>
+                      <p class="card-text truncar-3l">Uma planta cheia de simbolismo que energiza o ambiente, muito fácil de cuidar e ideal para ambientes internos.</p>
+                    </div>
+                    <div class="card-footer">
+                      <a href="carrinho.html" class="btn btn-success mt-2 d-block">adicionar a sacola</a>
+                      <small class="text-sucess">19 unidades em estoque</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div id="matheus" class="card">
+                    <img src="src/image/rosas.webp" class="card-img-top" alt="...">
+                    <div class="card-header text-center">
+                      R$90,00
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">Rosas Colombianas</h5>
+                      <p class="card-text truncar-3l">Conheça as Rosas Colombianas, lindas e perfumadas, otima para uma sala de estar.</p>
+                    </div>
+                    <div class="card-footer">
+                      <a href="carrinho.html" class="btn btn-success mt-2 d-block">adicionar a sacola</a>
+                      <small class="text-sucess">07 unidades em estoque</small>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                <br> <br>
+                <div class="row row-cols-1 row-cols-md-6 g-4 col-13">
+                <div class="col">
+                  <div id="matheus" class="card">
+                    <img src="src/image/samanbai.webp" class="card-img-top" alt="...">
+                    <div class="card-header text-center">
+                      R$60,00
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">Samambaia</h5>
+                      <p class="card-text truncar-3l">Uma planta delicada que exige muito cuidado e é aliado numero 1 de sombras e locais ventilados.</p>
+                    </div>
+                    <div class="card-footer">
+                      <a href="carrinho.html" class="btn btn-success mt-2 d-block">adicionar a sacola</a>
+                      <small class="text-sucess">31 unidades em estoque</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card">
+                    <img src="src/image/OIP (4).jpeg" class="card-img-top" alt="...">
+                    <div class="card-header text-center">
+                      R$79,00
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">Costela de Adão</h5>
+                      <p class="card-text truncar-3l">Uma planta com bela aparencia que combina em qualquer ambiente e é muito fácil de ser cuidada. </p>
+                    </div>
+                    <div class="card-footer">
+                      <a href="#" class="btn btn-light disabled mt-2 d-block">
+                      <small>Reabastecendo Estoque</small>
+                      </a>
+                      <small class="text-danger">
+                        <div class="text-center">
+                        <b>Produto Esgotado</b>
+                      </small>
+                    </div>
+                  </div>
+                </div>
+                  </div>
+                  
+                <div class="col">
+                  <div id="matheus" class="card">
+                    <img src="src/image/f2bc01b0faaa777269155d77ce0b18c5.webp" class="card-img-top" alt="...">
+                    <div class="card-header text-center">
+                      R$35,00
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">Jiboia</h5>
+                      <p class="card-text truncar-3l">Essa ama sombras e luminação artificial, muito facil de cuidar, e fica otimas em estantes altas.</p>
+                    </div>
+                    <div class="card-footer">
+                      <a href="carrinho.html" class="btn btn-success mt-2 d-block">adicionar a sacola</a>
+                      <small class="text-sucess">19 unidades em estoque</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div id="matheus" class="card">
+                    <img src="src/image/delu.jpg" class="card-img-top" alt="...">
+                    <div class="card-header text-center">
+                      R$170,50
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">Pata de Elefante</h5>
+                      <p class="card-text truncar-3l">Para quem gosta de plantas com aparencias diferentes, essa é perfeita para quintais e jardins.</p>
+                    </div>
+                    <div class="card-footer">
+                      <a href="carrinho.html" class="btn btn-success mt-2 d-block">adicionar a sacola</a>
+                      <small class="text-sucess">22 unidades em estoque</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div id="matheus" class="card">
+                    <img src="src/image/raphis.webp" class="card-img-top" alt="...">
+                    <div class="card-header text-center">
+                      R$110,00
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">Raphis</h5>
+                      <p class="card-text truncar-3l">Essa pequena arvore se da bem em qualquer ambiente, e tem uma aparencia linda para sua casa.</p>
+                    </div>
+                    <div class="card-footer">
+                      <a href="carrinho.html" class="btn btn-success mt-2 d-block">adicionar a sacola</a>
+                      <small class="text-sucess">27 unidades em estoque</small>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="col">
+                  <div id="matheus" class="card">
+                    <img src="src/image/zamioculca.webp" class="card-img-top" alt="...">
+                    <div class="card-header text-center">
+                      R$87,90
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">Zamioculca</h5>
+                      <p class="card-text truncar-3l">Uma planta que energiza o ambiente que está, muito fácil de cuidar e ideal para ambientes caseiros.</p>
+                    </div>
+                    <div class="card-footer">
+                      <a href="carrinho.html" class="btn btn-success mt-2 d-block">adicionar a sacola</a>
+                      <small class="text-sucess">26 unidades em estoque</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <br>
+                <div class="row row-cols-1 row-cols-md-6 g-4 col-13">
+                <div class="col">
+                  <div id="matheus" class="card">
+                    <img src="src/image/barbosa.jpg" class="card-img-top" alt="...">
+                    <div class="card-header text-center">
+                      R$23,00
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">Babosa</h5>
+                      <p class="card-text truncar-3l">Alem de deixar o ambiente com cara de renovado, ele tambem serve como creme facil.</p>
+                    </div>
+                    <div class="card-footer">
+                      <a href="carrinho.html" class="btn btn-success mt-2 d-block">adicionar a sacola</a>
+                      <small class="text-sucess">16 unidades em estoque</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div id="matheus" class="card">
+                    <img src="src/image/chrysanthemum-x-morifolium-autumn-glow-bronze.jpeg" class="card-img-top" alt="...">
+                    <div class="card-header text-center">
+                      R$46,00
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">Crisatêmo</h5>
+                      <p class="card-text truncar-3l">Bem armada e florida, O crisatemo é muito fácil de cuidar e ideal para ambientes externos.</p>
+                    </div>
+                    <div class="card-footer">
+                      <a href="carrinho.html" class="btn btn-success mt-2 d-block">adicionar a sacola</a>
+                      <small class="text-sucess">30 unidades em estoque</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div  class="card">
+                    <img src="src/image/aranha.jpg" class="card-img-top" alt="...">
+                    <div class="card-header text-center">
+                      R$25,00
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">Planta aranha</h5>
+                      <p class="card-text truncar-3l">Apesar do nome, ela é uma planta muito bonita e ornamental, acompanha todo lugar.</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="btn btn-light disabled mt-2 d-block">
+                        <small>Reabastecendo Estoque</small>
+                        </a>
+                        <small class="text-danger">
+                          <div class="text-center">
+                          <b>Produto Esgotado</b>
+                        </small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div id="matheus" class="card">
+                    <img src="src/image/dracaena.jpg" class="card-img-top" alt="...">
+                    <div class="card-header text-center">
+                      R$100,00
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">Dracaena</h5>
+                      <p class="card-text truncar-3l">Linda e alta, otimos para ambientes arejados e com uma decoração mais minimalista.</p>
+                    </div>
+                    <div class="card-footer">
+                      <a href="carrinho.html" class="btn btn-success mt-2 d-block">adicionar a sacola</a>
+                      <small class="text-sucess">09 unidades em estoque</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div id="matheus" class="card">
+                    <img src="src/image/barro.jpg" class="card-img-top" alt="...">
+                    <div class="card-header text-center">
+                      R$49,50
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">Vasos de barro</h5>
+                      <p class="card-text truncar-3l">Vasos lindos e modernos de barro que deixam a sua casa com um ar sofisticado.</p>
+                    </div>
+                    <div class="card-footer">
+                      <a href="carrinho.html" class="btn btn-success mt-2 d-block">adicionar a sacola</a>
+                      <small class="text-sucess">21 unidades em estoque</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div id="matheus" class="card">
+                    <img src="src/image/suculenta.jpg" class="card-img-top" alt="...">
+                    <div class="card-header text-center">
+                      R$18,99
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">Suculenta</h5>
+                      <p class="card-text truncar-3l">Uma planta que anima o local que está, muito fácil de cuidar e ideal para ambientes caseiros.</p>
+                    </div>
+                    <div class="card-footer">
+                      <a href="carrinho.html" class="btn btn-success mt-2 d-block">adicionar a sacola</a>
+                      <small class="text-sucess">15 unidades em estoque</small>
+                    </div>
+                  </div>
+                </div>
+                </div>
+              
+          
+                     <br> 
+                     
+                     <div id="matheus" class="card mb-3">
+                      <img src="src/image/coleção-de-inverno-list.webp" class="card-img-top" alt="...">
+                      
+                     </div>
+                     
+                 
+                  <div class="row row-cols-1 row-cols-md-3 g-2 col-12">
+                    <div class="col">
+                      <div id="matheus" class="card">
+                        <img src="src/image/lipo.jpg" class="card-img-top" alt="...">
+                        <div class="card-header text-center">
+                          <b>
+                          De 49,99 por R$29,99
+                          </b>
+                        </div>
+                        <div class="card-body">
+                          <h5 class="card-title">Violeta</h5>
+                          <p class="card-text truncar-3l">A Cor vibrante da Violeta Roxa, é perfeita para dar vida e espalhar boas energias por qualquer ambiente.É uma boa opção como presente para amigos, ela vem acompanhada de um pequeno vaso.</p>
+                        </div>
+                        <div class="card-footer">
+                          <a href="carrinho.html" class="btn btn-success mt-2 d-block">adicionar a sacola</a>
+                          <small class="text-sucess">18 unidades em estoque</small>
+                        </div>
+                      </div>
+                      </div>
+                 <div class="col">
+                 <div id="matheus" class="card">
+                  
+                  <img src="src/image/lobelia.jpg" class="card-img-top" alt="...">
+                  <div class="card-header text-center">
+                    <b>
+                    De R$230,00 por R$190,00
+                  </b>
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title">lobelia</h5>
+                    <p class="card-text truncar-3l">As Obelia Azul são as flores mais nobres para expressar o amor eterno por aquela pessoa especial, o que as torna uma ótima opção para presente, alem de ser linda para decorar o ambiente.</p>
+                  </div>
+                  <div class="card-footer">
+                    <a href="carrinho.html" class="btn btn-success mt-2 d-block">adicionar a sacola</a>
+                    <small class="text-sucess">06 unidades em estoque</small>
+                  </div>
+                
+                </div>
+              </div>
+              <div class="col">
+                <div id="matheus" class="card">
+                 
+                 <img src="src/image/lavanda.webp" class="card-img-top" alt="...">
+                 <div class="card-header text-center">
+                  <b>
+                   De R$110,00 por R$89,90
+                  </b>
+                 </div>
+                 <div class="card-body">
+                   <h5 class="card-title">Lavanda</h5>
+                   <p class="card-text truncar-3l">Declare seus sentimentos para alguém especial com lavandas, a planta cheirosa deixará o dia da pessoa presenteada mais colorido assim como a relação de ambos.</p>
+                 </div>
+                 <div class="card-footer">
+                   <a href="carrinho.html" class="btn btn-success mt-2 d-block">adicionar a sacola</a>
+                   <small class="text-sucess">29 unidades em estoque</small>
+                 </div>
+               
+               </div>
+             </div>
+          </div>
+          </div>
+         </div>
+           </div>                     
+      <br>
+      </div>
+    </main>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+       <br> <br>
+      <footer class="border-top text-muted bg-light">
+        <div class="container">
+          <div class="row py-3">
+            <div class="col-14 text-center">
+              &copy; 2023 Floricultura Abib Online<br>
+                    Rua Jurandyr de Oliveira, 46, Mogi das Cruzes<br>
+                    CNPJ 09.113.064/0001-73
+            </div>
+          </div>
+        </div>
+    </footer>
+    <script src="src/js/scriptindex.js"></script>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+@media (min-width: 250px) and (max-width: 1000px) {
+
+    body, html {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        overflow-x: hidden; /* Impede a rolagem horizontal */
+    }
+    
+    .wrapper {
+        width: 100%;
+    }
+    
+    .navbar {
+        width: 100%;
+    }
+    
+    .container {
+        width: 100%;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    
+   
+        .navbar-collapse {
+            position: absolute;
+            top: 56px; /* Altura da barra de navegação */
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+    }
+    
